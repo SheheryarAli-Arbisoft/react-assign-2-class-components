@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Home from './views/Home';
-import VideoPlayer from './views/VideoPlayer';
+import SearchForm from './views/SearchForm';
 
 import Container from './components/Container';
+import Heading from './components/Heading';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -16,12 +15,10 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Container>
-          <Router>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/:id' component={VideoPlayer} />
-            </Switch>
-          </Router>
+          <Heading>
+            <i className='fas fa-cloud-sun-rain'></i> Weather App
+          </Heading>
+          <SearchForm />
         </Container>
       </Provider>
     );

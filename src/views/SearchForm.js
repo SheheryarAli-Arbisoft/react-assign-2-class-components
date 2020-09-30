@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { withRouter } from 'react-router-dom';
 
 import Form from '../components/Form';
 import Input from '../components/Input';
 import Button from '../components/Button';
+
+import { connect } from 'react-redux';
+import { getWeatherData } from '../actions/weather';
 
 class SearchForm extends Component {
   constructor() {
@@ -29,13 +31,10 @@ class SearchForm extends Component {
     // Getting description from state
     const { description } = this.state;
 
-    // Getting the history object from the props
-    const { history } = this.props;
+    // Getting action from props
+    const { getWeatherData } = this.props;
 
-    // Passing the description in the url
-    if (description) {
-      history.push(`/?q=${description}`);
-    }
+    getWeatherData(description);
   }
 
   render() {
@@ -56,4 +55,4 @@ class SearchForm extends Component {
   }
 }
 
-export default withRouter(SearchForm);
+export default connect(null, { getWeatherData })(SearchForm);

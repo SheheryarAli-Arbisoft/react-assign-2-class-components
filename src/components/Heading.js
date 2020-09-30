@@ -7,7 +7,6 @@ const Heading = styled.div`
   font-size: 4rem;
   margin-bottom: 30px;
   font-weight: bold;
-  color: #ff0000;
 
   & > i {
     margin-right: 10px;
