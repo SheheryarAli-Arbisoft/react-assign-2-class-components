@@ -10,9 +10,9 @@ const generateWeatherUrl = (description) => {
 
 // Get required data from response
 const getRequiredData = (response) => {
-  const { name } = response.city;
+  const { id, name } = response.city;
 
-  let result = { name, forecast: [] };
+  let result = { id, name, forecast: [] };
 
   response.list.forEach((item) => {
     const { dt: dateTime } = item;

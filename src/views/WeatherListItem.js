@@ -64,7 +64,7 @@ class VideoListItem extends Component {
   render() {
     return (
       <Fragment>
-        <Link to={`/${this.props.video.id}`}>
+        {/* <Link to={`/${this.props.video.id}`}>
           <ListItem>
             <Thumbnail
               alt=''
@@ -88,7 +88,18 @@ class VideoListItem extends Component {
               </Description>
             </ListItemContent>
           </ListItem>
-        </Link>
+        </Link> */}
+        <div>{this.props.weather.name}</div>
+        <div>
+          {this.props.weather.forecast.map((forecast) => (
+            <Fragment>
+              <div>{forecast.dateTime}</div>
+              <div>{forecast.temp}</div>
+              <div>{forecast.pressure}</div>
+              <div>{forecast.humidity}</div>
+            </Fragment>
+          ))}
+        </div>
       </Fragment>
     );
   }

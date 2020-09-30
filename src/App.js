@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import SearchForm from './views/SearchForm';
+import WeatherList from './views/WeatherList';
 
 import Container from './components/Container';
 import Heading from './components/Heading';
@@ -19,6 +20,7 @@ class App extends Component {
             <i className='fas fa-cloud-sun-rain'></i> Weather App
           </Heading>
           <SearchForm />
+          <WeatherList />
         </Container>
       </Provider>
     );
