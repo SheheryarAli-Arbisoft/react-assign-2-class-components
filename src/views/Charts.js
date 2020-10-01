@@ -5,6 +5,8 @@ import TempChart from './TempChart';
 import PressureChart from './PressureChart';
 import HumidityChart from './HumidityChart';
 
+import { ChartContainer, ChartOuterWrapper } from '../components/Chart';
+
 class Charts extends Component {
   render() {
     // Get day from number
@@ -123,24 +125,32 @@ class Charts extends Component {
 
     return (
       <Fragment>
-        <TempChart
-          labels={labels}
-          forecastData={forecastData}
-          defaultStyles={defaultStyles}
-          defaultOptions={defaultOptions}
-        />
-        <PressureChart
-          labels={labels}
-          forecastData={forecastData}
-          defaultStyles={defaultStyles}
-          defaultOptions={defaultOptions}
-        />
-        <HumidityChart
-          labels={labels}
-          forecastData={forecastData}
-          defaultStyles={defaultStyles}
-          defaultOptions={defaultOptions}
-        />
+        <ChartContainer>
+          <ChartOuterWrapper>
+            <TempChart
+              labels={labels}
+              forecastData={forecastData}
+              defaultStyles={defaultStyles}
+              defaultOptions={defaultOptions}
+            />
+          </ChartOuterWrapper>
+          <ChartOuterWrapper>
+            <PressureChart
+              labels={labels}
+              forecastData={forecastData}
+              defaultStyles={defaultStyles}
+              defaultOptions={defaultOptions}
+            />
+          </ChartOuterWrapper>
+          <ChartOuterWrapper>
+            <HumidityChart
+              labels={labels}
+              forecastData={forecastData}
+              defaultStyles={defaultStyles}
+              defaultOptions={defaultOptions}
+            />
+          </ChartOuterWrapper>
+        </ChartContainer>
       </Fragment>
     );
   }

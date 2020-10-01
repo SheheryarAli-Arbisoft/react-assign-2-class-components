@@ -2,6 +2,9 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Line } from 'react-chartjs-2';
 
+import { ChartInnerWrapper } from '../components/Chart';
+import SubTitle from '../components/SubTitle';
+
 class PressureChart extends Component {
   render() {
     const { labels, forecastData, defaultStyles, defaultOptions } = this.props;
@@ -31,10 +34,11 @@ class PressureChart extends Component {
 
     return (
       <Fragment>
-        <div style={{ width: '100%', height: '350px', overflow: 'scroll' }}>
+        <SubTitle>Pressure</SubTitle>
+        <ChartInnerWrapper>
           <Line
             width={3200}
-            height={350}
+            height={250}
             data={getData()}
             options={{
               ...defaultOptions,
@@ -56,7 +60,7 @@ class PressureChart extends Component {
               },
             }}
           />
-        </div>
+        </ChartInnerWrapper>
       </Fragment>
     );
   }

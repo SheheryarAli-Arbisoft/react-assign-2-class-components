@@ -5,7 +5,8 @@ export const List = styled.div`
   width: 100%;
   min-height: 100px;
   margin-top: 40px;
-  padding: 20px;
+  padding: 0 20px;
+  padding-top: 30px;
   border-style: solid;
   border-width: 1px;
   border-color: #c9c9c9;
