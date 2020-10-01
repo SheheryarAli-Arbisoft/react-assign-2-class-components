@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import Charts from './Charts';
 
-import Thumbnail from '../components/Thumbnail';
 import Title from '../components/Title';
-import SubTitle from '../components/SubTitle';
-import Description from '../components/Description';
-import { ListItem, ListItemContent } from '../components/List';
+import { ListItem } from '../components/List';
 
 class WeatherListItem extends Component {
   render() {
@@ -14,11 +12,17 @@ class WeatherListItem extends Component {
 
     return (
       <Fragment>
-        <Title>{name}</Title>
-        <Charts forecastData={forecast} />
+        <ListItem>
+          <Title>{name}</Title>
+          <Charts forecastData={forecast} />
+        </ListItem>
       </Fragment>
     );
   }
 }
+
+WeatherListItem.propTypes = {
+  weather: PropTypes.object.isRequired,
+};
 
 export default WeatherListItem;

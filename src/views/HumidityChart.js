@@ -49,6 +49,7 @@ class HumidityChart extends Component {
                       beginAtZero: true,
                       min: 0,
                       max: 100,
+                      stepSize: 50,
                     },
                   },
                 ],

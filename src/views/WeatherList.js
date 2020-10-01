@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import WeatherListItem from './WeatherListItem';
 
 import { connect } from 'react-redux';
+import { List } from '../components/List';
 
 class WeatherList extends Component {
   render() {
@@ -10,11 +11,13 @@ class WeatherList extends Component {
 
     return (
       <Fragment>
-        {!loading &&
-          data.length > 0 &&
-          data.map((weather) => (
-            <WeatherListItem key={weather.id} weather={weather} />
-          ))}
+        <List>
+          {!loading &&
+            data.length > 0 &&
+            data.map((weather) => (
+              <WeatherListItem key={weather.id} weather={weather} />
+            ))}
+        </List>
       </Fragment>
     );
   }
