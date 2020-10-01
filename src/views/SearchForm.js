@@ -35,6 +35,7 @@ class SearchForm extends Component {
     // Getting action from props
     const { getWeatherData } = this.props;
 
+    // Getting weather data related to description
     getWeatherData(description);
   }
 

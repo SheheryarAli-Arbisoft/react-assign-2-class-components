@@ -6,11 +6,13 @@ import { connect } from 'react-redux';
 
 class WeatherList extends Component {
   render() {
+    const { loading, data } = this.props.weather;
+
     return (
       <Fragment>
-        {!this.props.weather.loading &&
-          this.props.weather.data.length > 0 &&
-          this.props.weather.data.map((weather) => (
+        {!loading &&
+          data.length > 0 &&
+          data.map((weather) => (
             <WeatherListItem key={weather.id} weather={weather} />
           ))}
       </Fragment>
