@@ -15,7 +15,7 @@ const getRequiredData = (response) => {
   let result = { id, name, forecast: [] };
 
   response.list.forEach((item) => {
-    const { dt: dateTime } = item;
+    const { dt_txt: dateTime } = item;
 
     const { temp, pressure, humidity } = item.main;
 
