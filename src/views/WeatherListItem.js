@@ -157,6 +157,24 @@ class VideoListItem extends Component {
       return result;
     };
 
+    // Generate pressure data
+    const generatePressureData = (forecast) => {
+      let result = [];
+
+      forecast.forEach((forecast) => result.push(forecast.pressure));
+
+      return result;
+    };
+
+    // Generate humidity data
+    const generateHumidityData = (forecast) => {
+      let result = [];
+
+      forecast.forEach((forecast) => result.push(forecast.humidity));
+
+      return result;
+    };
+
     const tempData = {
       labels: generateLabels(this.props.weather.forecast),
       datasets: [
@@ -180,6 +198,60 @@ class VideoListItem extends Component {
           // pointRadius: 1,
           // pointHitRadius: 10,
           data: generateTempData(this.props.weather.forecast),
+        },
+      ],
+    };
+
+    const pressureData = {
+      labels: generateLabels(this.props.weather.forecast),
+      datasets: [
+        {
+          // label: 'My First dataset',
+          // fill: false,
+          lineTension: 0.1,
+          // backgroundColor: 'rgba(75,192,192,0.4)',
+          // borderColor: 'rgba(75,192,192,1)',
+          // borderCapStyle: 'butt',
+          // borderDash: [],
+          // borderDashOffset: 0.0,
+          // borderJoinStyle: 'miter',
+          // pointBorderColor: 'rgba(75,192,192,1)',
+          // pointBackgroundColor: '#fff',
+          // pointBorderWidth: 1,
+          // pointHoverRadius: 5,
+          // pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+          // pointHoverBorderColor: 'rgba(220,220,220,1)',
+          // pointHoverBorderWidth: 2,
+          // pointRadius: 1,
+          // pointHitRadius: 10,
+          data: generatePressureData(this.props.weather.forecast),
+        },
+      ],
+    };
+
+    const humidityData = {
+      labels: generateLabels(this.props.weather.forecast),
+      datasets: [
+        {
+          // label: 'My First dataset',
+          // fill: false,
+          lineTension: 0.1,
+          // backgroundColor: 'rgba(75,192,192,0.4)',
+          // borderColor: 'rgba(75,192,192,1)',
+          // borderCapStyle: 'butt',
+          // borderDash: [],
+          // borderDashOffset: 0.0,
+          // borderJoinStyle: 'miter',
+          // pointBorderColor: 'rgba(75,192,192,1)',
+          // pointBackgroundColor: '#fff',
+          // pointBorderWidth: 1,
+          // pointHoverRadius: 5,
+          // pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+          // pointHoverBorderColor: 'rgba(220,220,220,1)',
+          // pointHoverBorderWidth: 2,
+          // pointRadius: 1,
+          // pointHitRadius: 10,
+          data: generateHumidityData(this.props.weather.forecast),
         },
       ],
     };
@@ -212,6 +284,60 @@ class VideoListItem extends Component {
           </ListItem>
         </Link> */}
         <Title>{this.props.weather.name}</Title>
+        <div style={{ width: '100%', height: '350px', overflow: 'scroll' }}>
+          <Line
+            width={3200}
+            height={350}
+            data={humidityData}
+            options={{
+              responsive: false,
+              maintainAspectRatio: false,
+              scales: {
+                yAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Humidity (%)',
+                    },
+                    ticks: {
+                      beginAtZero: true,
+                      min: 0,
+                      max: 100,
+                      // stepSize: 10,
+                    },
+                  },
+                ],
+              },
+            }}
+          />
+        </div>
+        <div style={{ width: '100%', height: '350px', overflow: 'scroll' }}>
+          <Line
+            width={3200}
+            height={350}
+            data={pressureData}
+            options={{
+              responsive: false,
+              maintainAspectRatio: false,
+              scales: {
+                yAxes: [
+                  {
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Pressure (hPa)',
+                    },
+                    ticks: {
+                      beginAtZero: true,
+                      min: 0,
+                      max: 1500,
+                      stepSize: 300,
+                    },
+                  },
+                ],
+              },
+            }}
+          />
+        </div>
         <div style={{ width: '100%', height: '350px', overflow: 'scroll' }}>
           <Line
             width={3200}
