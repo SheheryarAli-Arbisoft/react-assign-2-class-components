@@ -9,59 +9,7 @@ import SubTitle from '../components/SubTitle';
 import Description from '../components/Description';
 import { ListItem, ListItemContent } from '../components/List';
 
-// // Get formatted video time
-// const getFormattedTime = (dateString) => {
-//   const time = new Date(dateString);
-//   const currentTime = Date.now();
-
-//   const duration = currentTime - time;
-
-//   // Returning the duration in years
-//   let result = Math.floor(duration / (1000 * 60 * 60 * 24 * 365));
-//   if (result > 0) {
-//     return (
-//       <Fragment>
-//         <i className='fas fa-clock'></i>{' '}
-//         {`${result} year${result > 1 ? 's' : ''} ago`}
-//       </Fragment>
-//     );
-//   }
-
-//   // Returning the duration in months
-//   result = Math.floor(duration / (1000 * 60 * 60 * 24 * 30));
-//   if (result > 0) {
-//     return (
-//       <Fragment>
-//         <i className='fas fa-clock'></i>{' '}
-//         {`${result} month${result > 1 ? 's' : ''} ago`}
-//       </Fragment>
-//     );
-//   }
-
-//   // Returning the duration in days
-//   result = Math.floor(duration / (1000 * 60 * 60 * 24));
-//   if (result > 0) {
-//     return (
-//       <Fragment>
-//         <i className='fas fa-clock'></i>{' '}
-//         {`${result} day${result > 1 ? 's' : ''} ago`}
-//       </Fragment>
-//     );
-//   }
-
-//   // Returning the duration in minutes
-//   result = Math.floor(duration / (1000 * 60 * 60));
-//   if (result > 0) {
-//     return (
-//       <Fragment>
-//         <i className='fas fa-clock'></i>{' '}
-//         {`${result} minute${result > 1 ? 's' : ''} ago`}
-//       </Fragment>
-//     );
-//   }
-// };
-
-class VideoListItem extends Component {
+class WeatherListItem extends Component {
   render() {
     // Get day from number
     const getDayName = (number) => {
@@ -179,24 +127,22 @@ class VideoListItem extends Component {
       labels: generateLabels(this.props.weather.forecast),
       datasets: [
         {
-          // label: 'My First dataset',
-          // fill: false,
           lineTension: 0.1,
-          // backgroundColor: 'rgba(75,192,192,0.4)',
-          // borderColor: 'rgba(75,192,192,1)',
-          // borderCapStyle: 'butt',
-          // borderDash: [],
-          // borderDashOffset: 0.0,
-          // borderJoinStyle: 'miter',
-          // pointBorderColor: 'rgba(75,192,192,1)',
-          // pointBackgroundColor: '#fff',
-          // pointBorderWidth: 1,
-          // pointHoverRadius: 5,
-          // pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-          // pointHoverBorderColor: 'rgba(220,220,220,1)',
-          // pointHoverBorderWidth: 2,
-          // pointRadius: 1,
-          // pointHitRadius: 10,
+          backgroundColor: 'rgba(255,0,0,0.4)',
+          borderColor: 'rgba(255,0,0,1)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(255,0,0,1)',
+          pointBackgroundColor: '#ffffff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(255,0,0,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
           data: generateTempData(this.props.weather.forecast),
         },
       ],
@@ -206,24 +152,22 @@ class VideoListItem extends Component {
       labels: generateLabels(this.props.weather.forecast),
       datasets: [
         {
-          // label: 'My First dataset',
-          // fill: false,
           lineTension: 0.1,
-          // backgroundColor: 'rgba(75,192,192,0.4)',
-          // borderColor: 'rgba(75,192,192,1)',
-          // borderCapStyle: 'butt',
-          // borderDash: [],
-          // borderDashOffset: 0.0,
-          // borderJoinStyle: 'miter',
-          // pointBorderColor: 'rgba(75,192,192,1)',
-          // pointBackgroundColor: '#fff',
-          // pointBorderWidth: 1,
-          // pointHoverRadius: 5,
-          // pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-          // pointHoverBorderColor: 'rgba(220,220,220,1)',
-          // pointHoverBorderWidth: 2,
-          // pointRadius: 1,
-          // pointHitRadius: 10,
+          backgroundColor: 'rgba(0,0,255,0.4)',
+          borderColor: 'rgba(0,0,255,1)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(0,0,255,1)',
+          pointBackgroundColor: '#ffffff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(0,0,255,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
           data: generatePressureData(this.props.weather.forecast),
         },
       ],
@@ -233,24 +177,22 @@ class VideoListItem extends Component {
       labels: generateLabels(this.props.weather.forecast),
       datasets: [
         {
-          // label: 'My First dataset',
-          // fill: false,
           lineTension: 0.1,
-          // backgroundColor: 'rgba(75,192,192,0.4)',
-          // borderColor: 'rgba(75,192,192,1)',
-          // borderCapStyle: 'butt',
-          // borderDash: [],
-          // borderDashOffset: 0.0,
-          // borderJoinStyle: 'miter',
-          // pointBorderColor: 'rgba(75,192,192,1)',
-          // pointBackgroundColor: '#fff',
-          // pointBorderWidth: 1,
-          // pointHoverRadius: 5,
-          // pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-          // pointHoverBorderColor: 'rgba(220,220,220,1)',
-          // pointHoverBorderWidth: 2,
-          // pointRadius: 1,
-          // pointHitRadius: 10,
+          backgroundColor: 'rgba(0,255,0,0.4)',
+          borderColor: 'rgba(0,255,0,1)',
+          borderCapStyle: 'butt',
+          borderDash: [],
+          borderDashOffset: 0.0,
+          borderJoinStyle: 'miter',
+          pointBorderColor: 'rgba(0,255,0,1)',
+          pointBackgroundColor: '#ffffff',
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: 'rgba(0,255,0,1)',
+          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
           data: generateHumidityData(this.props.weather.forecast),
         },
       ],
@@ -290,6 +232,9 @@ class VideoListItem extends Component {
             height={350}
             data={humidityData}
             options={{
+              legend: {
+                display: false,
+              },
               responsive: false,
               maintainAspectRatio: false,
               scales: {
@@ -303,7 +248,6 @@ class VideoListItem extends Component {
                       beginAtZero: true,
                       min: 0,
                       max: 100,
-                      // stepSize: 10,
                     },
                   },
                 ],
@@ -317,6 +261,9 @@ class VideoListItem extends Component {
             height={350}
             data={pressureData}
             options={{
+              legend: {
+                display: false,
+              },
               responsive: false,
               maintainAspectRatio: false,
               scales: {
@@ -344,6 +291,9 @@ class VideoListItem extends Component {
             height={350}
             data={tempData}
             options={{
+              legend: {
+                display: false,
+              },
               responsive: false,
               maintainAspectRatio: false,
               scales: {
@@ -354,7 +304,7 @@ class VideoListItem extends Component {
                       labelString: 'Temperature (°C)',
                     },
                     ticks: {
-                      beginAtZero: true,
+                      stepSize: 10,
                     },
                   },
                 ],
@@ -367,4 +317,4 @@ class VideoListItem extends Component {
   }
 }
 
-export default VideoListItem;
+export default WeatherListItem;
