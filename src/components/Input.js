@@ -7,7 +7,6 @@ const Input = styled.input`
   border-radius: 5px;
   border-style: solid;
   border-width: 1px;
-  margin: 8px 5px;
   flex-grow: 1;
 `;
 

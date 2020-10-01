@@ -12,7 +12,6 @@ const Button = styled.button`
   cursor: pointer;
   color: #ffffff;
   background-color: #276ad6;
-  margin: 8px 5px;
 
   &:focus {
     outline: none;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Navbar from './views/Navbar';
 import SearchForm from './views/SearchForm';
 import WeatherList from './views/WeatherList';
 
@@ -15,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+        <Navbar />
         <Container>
           <Heading>
             <i className='fas fa-cloud-sun-rain'></i> Weather App
