@@ -11,7 +11,6 @@ class TempChart extends Component {
 
     // Generate temperature data
     const generateTempData = (forecast) => {
-      console.log(forecast);
       let result = [];
 
       forecast.forEach((forecast) =>
