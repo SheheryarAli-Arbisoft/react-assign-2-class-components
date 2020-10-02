@@ -9,11 +9,11 @@ class TempChart extends Component {
   render() {
     const { labels, forecastData, defaultStyles, defaultOptions } = this.props;
 
-    // Generate temperature data
-    const generateTempData = (forecast) => {
-      let result = [];
+    // eslint-disable-next-line no-shadow
+    const generateTempData = forecastData => {
+      const result = [];
 
-      forecast.forEach((forecast) =>
+      forecastData.forEach(forecast =>
         result.push(Math.ceil(forecast.temp - 273))
       );
 
@@ -35,6 +35,7 @@ class TempChart extends Component {
     });
 
     return (
+      /* eslint-disable react/jsx-filename-extension, react/jsx-fragments */
       <Fragment>
         <SubTitle>Temperature</SubTitle>
         <ChartInnerWrapper>
@@ -66,6 +67,7 @@ class TempChart extends Component {
 }
 
 TempChart.propTypes = {
+  /* eslint-disable react/forbid-prop-types */
   labels: PropTypes.array.isRequired,
   forecastData: PropTypes.array.isRequired,
   defaultStyles: PropTypes.object.isRequired,

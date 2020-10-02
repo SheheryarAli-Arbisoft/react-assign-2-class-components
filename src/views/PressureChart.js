@@ -9,11 +9,11 @@ class PressureChart extends Component {
   render() {
     const { labels, forecastData, defaultStyles, defaultOptions } = this.props;
 
-    // Generate pressure data
-    const generatePressureData = (forecast) => {
-      let result = [];
+    // eslint-disable-next-line no-shadow
+    const generatePressureData = forecastData => {
+      const result = [];
 
-      forecast.forEach((forecast) => result.push(forecast.pressure));
+      forecastData.forEach(forecast => result.push(forecast.pressure));
 
       return result;
     };
@@ -33,6 +33,7 @@ class PressureChart extends Component {
     });
 
     return (
+      /* eslint-disable react/jsx-filename-extension, react/jsx-fragments */
       <Fragment>
         <SubTitle>Pressure</SubTitle>
         <ChartInnerWrapper>
@@ -67,6 +68,7 @@ class PressureChart extends Component {
 }
 
 PressureChart.propTypes = {
+  /* eslint-disable react/forbid-prop-types */
   labels: PropTypes.array.isRequired,
   forecastData: PropTypes.array.isRequired,
   defaultStyles: PropTypes.object.isRequired,

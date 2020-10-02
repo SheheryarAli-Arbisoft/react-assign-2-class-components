@@ -3,18 +3,19 @@ import { WEATHER_DATA_LOADED, WEATHER_ERROR } from './types';
 
 const API_KEY = '8cf50a6624d851440243826f2e4d7b3a';
 
+/* eslint-disable no-console */
+
 // Generate weather url
-const generateWeatherUrl = (description) => {
-  return `https://api.openweathermap.org/data/2.5/forecast?q=${description}&appid=${API_KEY}`;
-};
+const generateWeatherUrl = description =>
+  `https://api.openweathermap.org/data/2.5/forecast?q=${description}&appid=${API_KEY}`;
 
 // Get required data from response
-const getRequiredData = (response) => {
+const getRequiredData = response => {
   const { id, name } = response.city;
 
-  let result = { id, name, forecast: [] };
+  const result = { id, name, forecast: [] };
 
-  response.list.forEach((item) => {
+  response.list.forEach(item => {
     const { dt_txt: dateTime } = item;
 
     const { temp, pressure, humidity } = item.main;
@@ -31,14 +32,15 @@ const getRequiredData = (response) => {
 };
 
 // Get weather data
-export const getWeatherData = (description) => async (dispatch, getState) => {
+// eslint-disable-next-line import/prefer-default-export
+export const getWeatherData = description => async (dispatch, getState) => {
   const {
     weather: { data },
   } = getState();
 
   if (
     data
-      .map((item) => item.name.toLowerCase())
+      .map(item => item.name.toLowerCase())
       .indexOf(description.toLowerCase()) !== -1
   ) {
     return;

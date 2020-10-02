@@ -10,7 +10,7 @@ import { ChartContainer, ChartOuterWrapper } from '../components/Chart';
 class Charts extends Component {
   render() {
     // Get day from number
-    const getDayName = (number) => {
+    const getDayName = number => {
       switch (number) {
         case 0:
           return 'Sun';
@@ -32,7 +32,7 @@ class Charts extends Component {
     };
 
     // Get month from number
-    const getMonthName = (number) => {
+    const getMonthName = number => {
       switch (number) {
         case 0:
           return 'Jan';
@@ -64,11 +64,11 @@ class Charts extends Component {
     };
 
     // Get formatted date
-    const getFormattedDate = (date) => {
+    const getFormattedDate = date => {
       const hours = date.getHours();
       const minutes = date.getMinutes();
 
-      let formattedHours = hours % 12;
+      const formattedHours = hours % 12;
 
       return [
         `${getDayName(date.getDay())}, ${date.getDate()} ${getMonthName(
@@ -81,11 +81,11 @@ class Charts extends Component {
     };
 
     // Generate the dataset to display in chart
-    const generateLabels = (forecast) => {
-      let result = [];
+    const generateLabels = forecastData => {
+      const result = [];
 
-      forecast.forEach((forecast) => {
-        let dateTime = new Date(forecast.dateTime);
+      forecastData.forEach(forecast => {
+        const dateTime = new Date(forecast.dateTime);
         result.push(getFormattedDate(dateTime));
       });
 
@@ -124,6 +124,7 @@ class Charts extends Component {
     };
 
     return (
+      /* eslint-disable react/jsx-filename-extension, react/jsx-fragments */
       <Fragment>
         <ChartContainer>
           <ChartOuterWrapper>
@@ -157,6 +158,7 @@ class Charts extends Component {
 }
 
 Charts.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   forecastData: PropTypes.array.isRequired,
 };
 
